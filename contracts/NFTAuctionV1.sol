@@ -24,7 +24,6 @@ contract NFTAuctionV1 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     }
 
     mapping(uint256 => Auction) public auctions;
-
     uint256 public auctionIdCounter;
 
     AggregatorV3Interface internal priceFeed;
@@ -57,7 +56,7 @@ contract NFTAuctionV1 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     }
 
     function initialize(address _priceFeed) public initializer {
-        __Ownable_init(msg.sender);
+        __Ownable_init();
         __UUPSUpgradeable_init();
         auctionIdCounter = 1;
         priceFeed = AggregatorV3Interface(_priceFeed);
